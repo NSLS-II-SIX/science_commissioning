@@ -1,11 +1,11 @@
 ### For users to run at start of bluesky
 
-RE.md['proposal'] = '305355' #'commissioning' #'bdt' #'commissioning'
+RE.md['proposal'] = 'RuO2' #'commissioning' #'bdt' #'commissioning'
 #RE.md['sample'] = 'BISCO_2212_OP91'
 #RE.md['sample'] = 'BISCO_2212_OD66'
 #RE.md['sample'] = 'BISCO_2212_OD82'
-RE.md['group'] = 'DEan' # 'SIX'
-RE.md['project'] = 'LSCO'#'' #'commissioning'
+RE.md['group'] = 'MIT-BNL' # 'SIX'
+RE.md['project'] = 'RuO2'#'' #'commissioning'
 RE.md['orientation'] = ''
 #RE.md['SAF'] = '304610'
 #RE.md.pop('SAF')

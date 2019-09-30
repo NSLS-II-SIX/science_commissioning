@@ -1,4 +1,48 @@
+def energy_462_CRO_thin_LCAO_200K_v17():
+    ext_vg = 30
+    total_time = 600
+    cyc = 24
+    #    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+    yield from pol_H()
+    E = list(np.arange(462,462.5,1.0))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map_thin_LCAO')
 
+def energy_462_CRO_bulk_200K_v16():
+    ext_vg = 30
+    total_time = 600
+    cyc = 24
+    #    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+    yield from pol_H()
+    E = list(np.arange(462,462.5,1.0))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map_bulk')
+
+
+def energy_462_CRO_thin_200K_v15():
+    ext_vg = 30
+    total_time = 600
+    cyc = 24
+    #    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+    yield from pol_H()
+    E = list(np.arange(462,462.5,1.0))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map_thin_film')
+
+
+def energy_462_CRO_84K_v14():
+    ext_vg = 30
+    total_time = 600
+    cyc = 24
+    #    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+    yield from pol_H()
+    E = list(np.arange(462,462.5,1.0))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map_thin_film')
 
 
 
