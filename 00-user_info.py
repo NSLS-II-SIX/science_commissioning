@@ -1,13 +1,10 @@
 ### For users to run at start of bluesky
 
-RE.md['proposal'] = 'RuO2' #'commissioning' #'bdt' #'commissioning'
-#RE.md['sample'] = 'BISCO_2212_OP91'
-#RE.md['sample'] = 'BISCO_2212_OD66'
-#RE.md['sample'] = 'BISCO_2212_OD82'
-RE.md['group'] = 'MIT-BNL' # 'SIX'
-RE.md['project'] = 'RuO2'#'' #'commissioning'
+RE.md['proposal'] = 'hBN - 305353' #'commissioning' #'bdt' #'commissioning'
+RE.md['group'] = 'BNL' # 'SIX'
+RE.md['project'] = 'hBN'#'' #'commissioning'
 RE.md['orientation'] = ''
-#RE.md['SAF'] = '304610'
+RE.md['SAF'] = '304958'
 #RE.md.pop('SAF')
 RE.md.pop('orientation')
 RE.md.pop('project')
@@ -67,12 +64,13 @@ def rixs_one_energy_1(split_time, total_exp,cycles,energy, ext_vg,reason='', dis
                 #yield from mvr(cryo.y,0.002)
                 yield from sleep(3)
                 print('Ending cycle {} of {}\n' .format((i+1),cycles))
-            except TimeoutError:
+            except TimeoutError as e:
                 print('*'*50)
-                print(f"HAD AT TIMEOUT on loop {j}")
+                print(f"HAD A TIMEOUT on loop {i+1}")
+                print(f"Exception: {e}")
                 print('*'*50)
                 yield from bps.checkpoint()
-                yield from bps.sleep(300)
+                yield from bps.sleep(30)
                 yield from bps.unstage(rixscam)
                 fails.append((j, time.ctime()))
                 continue

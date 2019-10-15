@@ -1,3 +1,294 @@
+def hBN_th15_Emap():
+    ext_vg = 20
+    total_time = 600
+    cyc = 12
+	# th = 15, tth = 90
+    yield from pol_V()
+    E = [401.25, 402, 404,405,403]#,407,408,409,410]
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+        print(i)
+
+
+def hBN_th20_401():
+    ext_vg = 20
+    total_time = 600
+    cyc = 6
+	# th = 15, tth = 90
+    yield from pol_V()
+    E = list(np.arange(401,401.4,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+
+
+def RuO2_last_macro():
+
+    ext_vg = 11
+    total_time = 600
+    cyc = 15
+	# th = 15, tth = 90
+    yield from pol_H()
+    E = list(np.arange(529.6,529.7,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+
+    yield from mv(cryo.x, 25.979)
+    yield from mv(cryo.y, 18.8)
+    yield from mv(cryo.z, 14.97)
+    yield from mv(cryo.t, 35)
+    yield from sleep(10)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+	# th = 15, tth = 90
+    yield from pol_H()
+    E = list(np.arange(529.6,529.7,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th 35')
+
+    yield from mv(cryo.x, 25.793)
+    yield from mv(cryo.y, 18.8)
+    yield from mv(cryo.z, 14.83)
+    yield from mv(cryo.t, 42.5)
+    yield from sleep(10)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+	# th = 15, tth = 90
+    yield from pol_H()
+    E = list(np.arange(529.6,529.7,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th 35')
+
+
+
+def RuO2_highstat_highres():
+    ext_vg = 11
+    total_time = 600
+    cyc = 18
+	# th = 15, tth = 90
+    yield from pol_H()
+    E = list(np.arange(529.6,529.7,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+
+
+def KMO_emapOxy_3():
+    ext_vg = 11
+    total_time = 600
+    E = list(np.arange(530.0,530.1,0.5))
+    yield from pol_H()
+    for i in E:
+        sec_x_pt = 3
+        yield from rixs_one_energy_1(sec_x_pt,total_time,6,i,ext_vg, 'E_map')
+    yield from pol_V()
+    for i in E:
+        sec_x_pt = 3
+        yield from rixs_one_energy_1(sec_x_pt,total_time,6,i,ext_vg, 'E_map')
+
+def KMO_emapOxy_2():
+    ext_vg = 20
+    total_time = 600
+    cyc = 1
+    yield from pol_H()
+    E = list(np.arange(532.0,533.05,0.1))
+    for i in E:
+        sec_x_pt = 3
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+    E = list(np.arange(530.5,530.6,0.5))
+    ext_vg = 11
+    for i in E:
+        sec_x_pt = 3
+        yield from rixs_one_energy_1(sec_x_pt,total_time,6,i,ext_vg, 'E_map')
+
+def KMO_emapOxy():
+    ext_vg = 20
+    total_time = 600
+    cyc = 1
+    yield from pol_H()
+    E = list(np.arange(529.9,534.05,0.1))
+    for i in E:
+        sec_x_pt = 3
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+    E = list(np.arange(530.5,530.6,0.5))
+    for i in E:
+        sec_x_pt = 3
+        yield from rixs_one_energy_1(sec_x_pt,total_time,6,i,ext_vg, 'E_map')
+
+
+def RuO2_highstat_medres():
+    ext_vg = 11
+    total_time = 600
+    cyc = 3
+	# th = 15, tth = 90
+    yield from pol_H()
+    E = list(np.arange(529.6,529.7,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+
+def RuO2_emapOxy():
+    ext_vg = 20
+    total_time = 600
+    cyc = 1
+    yield from pol_H()
+    E = list(np.arange(529.0,533.1,0.1))
+    for i in E:
+        sec_x_pt = 3
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+    yield from pol_V()
+    E = list(np.arange(529.0,533.1,0.1))
+    for i in E:
+        sec_x_pt = 2
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+
+
+
+def wednesday_am_v3():
+    ext_vg = 100
+    total_time = 900
+    cyc = 4
+    yield from pol_H()
+    E = list(np.arange(463.0,465.5,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+
+
+def wednesday_lull_v2():
+    ext_vg = 20
+    total_time = 900
+    cyc = 16
+    sec_x_pt = 5
+
+    #    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map'
+    yield from pol_H()
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,462.0,ext_vg, 'E_map')
+    yield from pol_V()
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,462.0,ext_vg, 'E_map')
+    # we can stop here
+    yield from pol_H()
+    yield from rixs_one_energy_1(sec_x_pt,total_time,2,462.0,ext_vg, 'E_map')
+    yield from pol_V()
+    yield from rixs_one_energy_1(sec_x_pt,total_time,2,462.0,ext_vg, 'E_map')
+    yield from pol_H()
+    yield from rixs_one_energy_1(sec_x_pt,total_time,2,462.0,ext_vg, 'E_map')
+    yield from pol_V()
+    yield from rixs_one_energy_1(sec_x_pt,total_time,2,462.0,ext_vg, 'E_map')
+
+def wednesday_lull():
+    ext_vg = 100
+    total_time = 900
+    cyc = 5
+    E = list(np.arange(461.0,466.5,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+
+    ext_vg = 20
+    total_time = 900
+    cyc = 16
+    #    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map'
+    yield from pol_H()
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,462.0,ext_vg, 'E_map')
+    yield from pol_V()
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,462.0,ext_vg, 'E_map')
+
+def lunch_201901001():
+    ext_vg = 20
+    total_time = 900
+    cyc = 16
+    #    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+    yield from pol_H()
+    E = list(np.arange(462,462.5,1.0))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+
+def night_20190930():
+    ext_vg = 20
+    total_time = 900
+    cyc = 8
+    #    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+    yield from pol_H()
+    E = list(np.arange(461,466.5,1.0))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+
+def xas_ruO2():
+    yield from pol_H()
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+
+def xas_ruO2_rixs():
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)#77216
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from pol_H()
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+    yield from xas([sclr,rixscam,ring_curr],pgm.en,460,465,51,5)
+
+    ext_vg = 20
+    total_time = 900
+    cyc = 8
+    #    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+    yield from pol_H()
+    E = list(np.arange(462,462.5,1.0))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+
+
+
+
+def energy_map_bulk_CRO():
+    ext_vg = 20
+    total_time = 600
+    cyc = 12
+    #    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+    yield from pol_H()
+    E = list(np.arange(461,464.5,1.0))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'E_map')
+
+
+
+def test_stability_20190930_v2():
+    ext_vg = 11
+    total_time = 10
+    cyc = 60
+    en = 462
+    sec_x_pt = 1
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'test')
+
+def test_stability_20190930():
+    ext_vg = 11
+    total_time = 1
+    cyc = 60
+    en = 462
+    sec_x_pt = 1
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'test')
+
 def high_res_SCO_tth130_v3():
     ext_vg = 11
     total_time = 600
