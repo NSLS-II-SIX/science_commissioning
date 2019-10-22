@@ -1,0 +1,7 @@
+#random_RB = EpicsSignalRO('XF:02IDA-OP{xxx}xxxxx', name = 'random_RB')
+# if epics is set to constantly upate (called stream), then you can use this signal as a python detector
+#
+#
+
+# already there, then use below.  The example below will include all things inside of the python object espgm
+# det = [espgm]

@@ -1,10 +1,149 @@
+def offset_gr1800_rixscam():
+    ######################### Grating 1800l/mm  ##################################
+    det_list=[rixscam]
+    #yield from beamline_align_v2()
+    yield from sleep(120)
+    cff_ideal_1800 = 4.40
+    yield from mv(pgm.cff, cff_ideal_1800)
+    yield from mv(extslt.vg,7)
+    offset=0
+    yield from mv(pgm.en,931.6)
+    yield from sleep(10)
+
+    yield from count(det_list, num = 24)
+    for i in range(0, 6):
+        yield from mv(pgm.cff,cff_ideal_1800+i*0.02) #fine
+        yield from mv(pgm.en,931.6)
+        yield from sleep(30)
+        yield from count(det_list, num = 24)
+        print('Cff = {}' .format((cff_ideal_1800+i*0.02)))
+    yield from mv(pgm.cff,cff_ideal_1800)
+
+from epics import caget 
+foe_P_in = EpicsSignalRO('XF:02IDA-OP{DI:2}P:Supply-I',name='foe_P_in')
+m2_P_in = EpicsSignalRO('XF:02IDB-OP{Mir:2-WPG:1}DI-I',name='m2_P_in')
+foe_P_out = EpicsSignalRO('XF:02IDA-OP{DI:2}P:Return-I',name='foe_P_out') 
+tiltmeter_2_x = EpicsSignalRO('XF:02IDD-ES{DAA:1-TiltM:2}Axis:X-I',name='tiltmeter_2_x')
+tiltmeter_2_y = EpicsSignalRO('XF:02IDD-ES{DAA:1-TiltM:2}Axis:Y-I',name='tiltmeter_2_y')
+
+def test_stability_20191018():
+    dets = [rixscam,m6.pit,espgm.m7pit, espgm.grpit, foe_P_in, m2_P_in, foe_P_out,tiltmeter_2_x,tiltmeter_2_y]
+    for i in range(0,200):
+        yield from count(dets, num = 24)
+        print(i)
+
+
+def hBN_th38_thinFlake():
+    ext_vg = 40
+    total_time = 600
+    cyc = 29
+	# th = 15, tth = 90
+    yield from pol_V()
+    E = [405.7]
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+
+def hBN_th15_406_highRes_firstFlake_at_SIX_bis():
+    ext_vg = 11
+    total_time = 600
+    cyc = 8
+	# th = 15, tth = 90
+    yield from pol_V()
+    E = [406]
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+
+def hBN_th15_406_highRes_firstFlake_at_SIX():
+    ext_vg = 11
+    total_time = 600
+    cyc = 6
+	# th = 15, tth = 90
+    yield from pol_V()
+    E = [406]
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+
+
+def hBN_th38_406_highRes_firstFlake_at_SIX():
+    ext_vg = 11
+    total_time = 600
+    cyc = 18
+	# th = 15, tth = 90
+    yield from pol_V()
+    E = [406]
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+
+
+def hBN_th15_406_highRes():
+    ext_vg = 11
+    total_time = 600
+    cyc = 24
+	# th = 15, tth = 90
+    yield from pol_V()
+    E = [406]
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+
+    ext_vg = 11
+    total_time = 600
+    cyc = 24
+	# th = 15, tth = 90
+    yield from pol_H()
+    E = [406]
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+    print('Now flakes!! May the scattering Gods be with you!!')
+
+def hBN_th15_407():
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+	# th = 15, tth = 90
+    yield from pol_V()
+    E = [407]#,407,408,409,410]
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+        print(i)
+
+def hBN_th15_406():
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+	# th = 15, tth = 90
+    yield from pol_V()
+    E = [406.0]#,407,408,409,410]
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+        print(i)
+
+def hBN_th15_405():
+    ext_vg = 20
+    total_time = 600
+    cyc = 12
+	# th = 15, tth = 90
+    yield from pol_V()
+    E = [406]#,407,408,409,410]
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
+        print(i)
+
 def hBN_th15_Emap():
     ext_vg = 20
     total_time = 600
     cyc = 12
 	# th = 15, tth = 90
     yield from pol_V()
-    E = [401.25, 402, 404,405,403]#,407,408,409,410]
+    E = [405]#,407,408,409,410]
     for i in E:
         sec_x_pt = 5
         yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'HighStatAndRes')
