@@ -1,3 +1,163 @@
+def KMO_highRes_final():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 18
+    yield from pol_V(-2)
+    yield from sleep(10)
+    E = list(np.arange(529.4,529.5,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th43')
+
+    yield from mv(cryo.x, 19.880)
+    yield from mv(cryo.y, 55.1)
+    yield from mv(cryo.z, 13.345)
+    yield from mv(cryo.t, 20)
+    yield from sleep(5)
+    yield from mv(cryo.t, 25)
+    yield from sleep(5)
+    ext_vg = 15
+    total_time = 600
+    cyc = 18
+    yield from pol_V(-2)
+    yield from sleep(10)
+    E = list(np.arange(529.4,529.5,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th43')
+
+
+def KMO_highRes_temp220K():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 18
+	# th = 10, tth = 90
+    yield from pol_V(-2)
+    yield from sleep(10)
+    E = list(np.arange(529.4,529.5,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+
+
+def KMO_highRes_th_43():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 18
+	# th = 10, tth = 90
+    yield from pol_V(-2)
+    yield from sleep(10)
+    E = list(np.arange(529.5,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th43')
+
+def KMO_highRes_20191102():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 18
+	# th = 10, tth = 90
+    yield from pol_V(-2)
+    yield from sleep(10)
+    E = list(np.arange(529.5,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+    cyc = 18
+    yield from pol_H(-3)
+    yield from sleep(10)
+    E = list(np.arange(529.5,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+    yield from pol_V(-2)
+    cyc = 12
+    yield from sleep(10)
+    E = list(np.arange(529.5,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+def KMO_th_dep_20191031():
+
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+	# th = 10, tth = 90
+    yield from pol_V(-2)
+    E = list(np.arange(530.6,530.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+    cyc = 12
+    yield from pol_H(-3)
+    E = list(np.arange(530.6,530.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+    yield from mv(cryo.x, 19.03)
+    yield from mv(cryo.y, 52.5)
+    yield from mv(cryo.z, 16.1)
+    yield from mv(cryo.t, 45)
+    yield from sleep(10)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+	# th = 15, tth = 90
+    yield from pol_V(-2)
+    E = list(np.arange(530.6,530.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th45')
+    cyc = 9    
+    yield from pol_H(-3)
+    E = list(np.arange(530.6,530.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th45')
+
+    yield from mv(cryo.x, 19.625)
+    yield from mv(cryo.y, 52.5)
+    yield from mv(cryo.z, 15.15)
+    yield from mv(cryo.t, 25)
+    yield from sleep(10)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+	# th = 25, tth = 90
+    yield from pol_V(-2)
+    E = list(np.arange(530.6,530.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th25')
+    cyc = 9
+    yield from pol_H(-3)
+    E = list(np.arange(530.6,530.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th25')
+
+
+
+
+
+
+def test_stability_20191022():
+    ext_vg = 11
+    total_time = 2
+    cyc = 1000
+    en = 931.6
+    sec_x_pt = 0.1
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'test')
+
+
 def offset_gr1800_rixscam():
     ######################### Grating 1800l/mm  ##################################
     det_list=[rixscam]
