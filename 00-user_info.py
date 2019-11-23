@@ -44,8 +44,8 @@ def rixs_one_energy_1(split_time, total_exp,cycles,energy, ext_vg,reason='', dis
             sclr_disable()   
         else:
 	        sclr_enable()
-        dets=[rixscam, sclr,stemp.temp.B.T]
-        #dets=[rixscam]
+        #dets=[rixscam, sclr,stemp.temp.B.T]
+        dets=[rixscam, sclr,stemp.temp.B.T, voltage_dc, current_rbk]
         yield from mv(extslt.vg,ext_vg, extslt.hg, 150)
         yield from pzshutter_enable()
         yield from mv(rixscam.cam.acquire_time, split_time)  
@@ -62,10 +62,10 @@ def rixs_one_energy_1(split_time, total_exp,cycles,energy, ext_vg,reason='', dis
             try:
                 print('Starting cycle {} of {}' .format((i+1),cycles))
                 yield from count(dets, num=pts, md = {'reason':'Length = '+str(np.int(pts*split_time))+' s -'+reason} ) 
-                yield from mvr(cryo.y,0.002) # if you do not want to move comment out this line
-                yield from sleep(3)
-                yield from mvr(cryo.x,-0.0012) # if you do not want to move comment out this line
-                yield from mvr(cryo.z,0.0026) # if you do not want to move comment out this line
+                #yield from mvr(cryo.y,0.002) # if you do not want to move comment out this line
+                #yield from sleep(3)
+                #yield from mvr(cryo.x,-0.0012) # if you do not want to move comment out this line
+                #yield from mvr(cryo.z,0.0026) # if you do not want to move comment out this line
                 print('Ending cycle {} of {}\n' .format((i+1),cycles))
             except TimeoutError as e:
                 print('*'*50)
@@ -78,7 +78,8 @@ def rixs_one_energy_1(split_time, total_exp,cycles,energy, ext_vg,reason='', dis
                 fails.append((j, time.ctime()))
                 continue
 
-    #except KeyboardInterrupt:
+    
+   #except KeyboardInterrupt:
         #print('\n\n..........User interuptted rixs_one_energy()...........\n\n')
         #yield from rixs_cleanup(sclr_set_time)
         #return fails
@@ -90,8 +91,8 @@ def rixs_one_energy_1(split_time, total_exp,cycles,energy, ext_vg,reason='', dis
         #return fails
         raise
     
-    # print('\n\n..........rixs_one_energy() finished normally...........\n\n')#this prints regardless of quiting during scan or letting it finish
-    # yield from rixs_cleanup(sclr_set_time)    
+    print('\n\n..........rixs_one_energy() finished normally...........\n\n')#this prints regardless of quiting during scan or letting it finish
+    yield from rixs_cleanup(sclr_set_time)    
 
     return fails
 

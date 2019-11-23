@@ -1,3 +1,15 @@
+def Hematite_film_dinner():
+    ext_vg = 15
+    total_time = 600
+    cyc = 6
+    yield from pol_H(0)
+    yield from sleep(10)
+    E = list(np.arange(707.5,707.6,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th43')
+
+
 def KMO_highRes_final():
 
     ext_vg = 15
