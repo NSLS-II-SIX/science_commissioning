@@ -5,15 +5,28 @@ current_rbk = EpicsSignal('XF:02IDD{K2611:1}RB-MeasI', name = 'current_rbk')
 #yield from mv(keithley_output,'ON')
 #yield from mv(voltage_dc,0.5)
 
+def Fe_film_tth150_without_field():
+    ext_vg = 15
+    total_time = 900
+    cyc = 12
+    # Pol  Vertical
+    #yield from pol_V(-2)
+    sec_x_pt = 5
+    yield from mv(keithley_output,'OFF')
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,706.6,ext_vg, 'Fe film')
+
+    yield from mv(voltage_dc,0.0)
+    yield from mv(keithley_output,'OFF')
+
 def Fe_film_tth150_with_E_field_4():
     ext_vg = 15
     total_time = 900
-    cyc = 8
+    cyc = 12
     # Pol  Vertical
     #yield from pol_V(-2)
     sec_x_pt = 5
     yield from mv(keithley_output,'ON')
-    yield from mv(voltage_dc,-20.0)
+    yield from mv(voltage_dc,-10.0)
     yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,706.6,ext_vg, 'Fe film')
 
     yield from mv(voltage_dc,0.0)
