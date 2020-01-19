@@ -1,3 +1,37 @@
+def Fe3Sn2_th0_highStats():
+    ext_vg = 15
+    total_time = 600
+    cyc = 18
+    sec_x_pt = 5
+    E = [706.5] # film
+    # E = [707.35,709] #crystal
+    
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'Fe3Sn2')
+
+
+def Fe3Sn2_th0():
+    ext_vg = 11
+    total_time = 600
+    cyc = 6 
+    sec_x_pt = 5
+    E = [706.5] # film
+    # E = [707.35,709] #crystal
+    
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'Fe3Sn2')
+
+    yield from pol_H(0)
+    yield from sleep(30)
+    yield from beamline_align_v2()
+    yield from sleep(30)
+    cyc = 9
+    for i in E:
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'Fe3Sn2')
+
+
 voltage_dc = EpicsSignal('XF:02IDD{K2611:1}SP-VLvl', name = 'voltage_dc')
 keithley_output = EpicsSignal('XF:02IDD{K2611:1}Cmd:Out-Ena', name = 'keithley_output')
 current_rbk = EpicsSignal('XF:02IDD{K2611:1}RB-MeasI', name = 'current_rbk')
@@ -8,11 +42,11 @@ current_rbk = EpicsSignal('XF:02IDD{K2611:1}RB-MeasI', name = 'current_rbk')
 def Fe_film_tth150_without_field():
     ext_vg = 15
     total_time = 900
-    cyc = 12
+    cyc = 6
     # Pol  Vertical
     #yield from pol_V(-2)
     sec_x_pt = 5
-    yield from mv(keithley_output,'OFF')
+    # yield from mv(keithley_output,'OFF')
     yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,706.6,ext_vg, 'Fe film')
 
     yield from mv(voltage_dc,0.0)
@@ -113,20 +147,22 @@ def YIG_film_specular_search():
 def YIG_film_energy_map():
     ext_vg = 11
     total_time = 600
-    cyc = 9
+    cyc = [6,9] 
     # Pol  Vertical
     #yield from pol_V(-2)
     sec_x_pt = 5
-    E = [708.85]
-    for i in E:
+    E = [707.35,708.55] # film
+    # E = [707.35,709] #crystal
+    
+    for c, i in zip(cyc, E):
         sec_x_pt = 5
-        yield from rixs_one_energy_1(sec_x_pt,total_time,8,i,ext_vg, 'YIG')
+        yield from rixs_one_energy_1(sec_x_pt,total_time,c,i,ext_vg, 'YIG')
 
-    E = [707.65]
-    for i in E:
-        sec_x_pt = 5
-        yield from rixs_one_energy_1(sec_x_pt,total_time,8,i,ext_vg, 'YIG')
-
+    # Moving to sample transfer position
+    # yield from mv(cryo.t,257)
+    # yield from mv(cryo.y,44)
+    # yield from mv(cryo.x,14)
+    # yield from mv(ow,-69.75)
 
 def YIG_energy_map():
     ext_vg = 11

@@ -44,8 +44,8 @@ def rixs_one_energy_1(split_time, total_exp,cycles,energy, ext_vg,reason='', dis
             sclr_disable()   
         else:
 	        sclr_enable()
-        #dets=[rixscam, sclr,stemp.temp.B.T]
-        dets=[rixscam, sclr,stemp.temp.B.T, voltage_dc, current_rbk]
+        dets=[rixscam, sclr,stemp.temp.B.T]
+        #dets=[rixscam, sclr,stemp.temp.B.T, voltage_dc, current_rbk]
         yield from mv(extslt.vg,ext_vg, extslt.hg, 150)
         yield from pzshutter_enable()
         yield from mv(rixscam.cam.acquire_time, split_time)  

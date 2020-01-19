@@ -1,3 +1,119 @@
+
+def KMO_highRes_2th150_v6():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 24
+	# th = 10, tth = 90
+    yield from pol_H(-1.5)
+    yield from sleep(10)
+    E = list(np.arange(529.4,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th45')
+def KMO_highRes_2th150_v5():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 8
+	# th = 10, tth = 90
+    yield from pol_H(-1.5)
+    yield from sleep(10)
+    E = list(np.arange(529.4,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+
+def KMO_highRes_2th150_v4():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 18
+	# th = 10, tth = 90
+    yield from pol_H(-1.5)
+    yield from sleep(10)
+    E = list(np.arange(529.4,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+
+def KMO_highRes_2th150_v3():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 18
+	# th = 10, tth = 90
+    yield from pol_H(-1.5)
+    yield from sleep(10)
+    E = list(np.arange(529.4,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 3
+	# th = 10, tth = 90
+    yield from pol_V(0)
+    yield from sleep(10)
+    E = list(np.arange(529.4,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+
+def KMO_highRes_2th150_v2():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 3
+	# th = 10, tth = 90
+    yield from pol_H(-1.5)
+    yield from sleep(10)
+    E = list(np.arange(529.4,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 3
+	# th = 10, tth = 90
+    yield from pol_V(0)
+    yield from sleep(10)
+    E = list(np.arange(529.4,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+def KMO_highRes_2th150():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 15
+	# th = 10, tth = 90
+    yield from pol_H(-1.5)
+    yield from sleep(10)
+    E = list(np.arange(529.4,529.8,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th10')
+
+
+
+
+
+def test_stability_20191207():
+    ext_vg = 11
+    total_time = 60
+    cyc = 1000
+    en = 853
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'test')
+
+
 def Hematite_film_dinner():
     ext_vg = 15
     total_time = 600
@@ -17,7 +133,7 @@ def KMO_highRes_final():
     cyc = 18
     yield from pol_V(-2)
     yield from sleep(10)
-    E = list(np.arange(529.4,529.5,0.5))
+    E = list(np.arange(529.4,530.5,0.5))
     for i in E:
         sec_x_pt = 5
         yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th43')
