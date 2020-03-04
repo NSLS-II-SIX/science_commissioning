@@ -1,3 +1,113 @@
+def test_stability_20200223():
+    ext_vg = 11
+    total_time = 90
+    cyc = 1000
+    en = 529
+    sec_x_pt = 3
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'test')
+
+
+def KMO_highRes_20200222():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 60
+    E = list(np.arange(529.8,529.9,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th30')
+        #yield from pol_V(-2)
+        #yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th45')
+
+def KMO_highRes_20200221():
+
+    ext_vg = 15
+    total_time = 600
+    cyc = 19
+    E = list(np.arange(530.1,530.2,0.5))
+    for i in E:
+        sec_x_pt = 5
+        yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th45')
+
+
+def test_stability_20200220():
+    ext_vg = 11
+    total_time = 90
+    cyc = 1000
+    en = 529
+    sec_x_pt = 3
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'test')
+
+
+def NiO_20200217_v2():
+
+    ext_vg = 11
+    total_time = 600
+    cyc = 3
+	# th = 10, tth = 90
+    #yield from pol_H(-3)
+    yield from sleep(10)
+    sec_x_pt = 2
+    
+    E = 853.2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,E,ext_vg, 'NiO')
+
+def NiO_20200217():
+
+    ext_vg = 11
+    total_time = 600
+    cyc = 6
+	# th = 10, tth = 90
+    yield from pol_H(-3)
+    yield from sleep(10)
+    sec_x_pt = 2
+    E = 854.5
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,E,ext_vg, 'NiO')
+
+    E = 853.2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,E,ext_vg, 'NiO')
+
+
+def NiO_20200215():
+
+    ext_vg = 7
+    total_time = 600
+    cyc = 24
+	# th = 10, tth = 90
+    yield from pol_H(-3)
+    yield from sleep(10)
+    sec_x_pt = 5
+    E = 854.5
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,E,ext_vg, 'NiO')
+
+    E = 853.2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,E,ext_vg, 'NiO')
+
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+	# th = 10, tth = 90
+    yield from pol_H(-3)
+    yield from sleep(10)
+    sec_x_pt = 5
+    E = 854.5
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,E,ext_vg, 'NiO')
+
+    E = 853.2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,E,ext_vg, 'NiO')
+
+    E = 856.5
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,E,ext_vg, 'NiO')
+
+
+def test_stability_20200215():
+    ext_vg = 11
+    total_time = 180
+    cyc = 1000
+    en = 530
+    sec_x_pt = 5
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'test')
+
 
 def KMO_highRes_2th150_v6():
 
@@ -11,6 +121,7 @@ def KMO_highRes_2th150_v6():
     for i in E:
         sec_x_pt = 5
         yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,i,ext_vg, 'th45')
+
 def KMO_highRes_2th150_v5():
 
     ext_vg = 15

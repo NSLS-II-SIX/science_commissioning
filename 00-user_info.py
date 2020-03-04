@@ -1,11 +1,11 @@
 ### For users to run at start of bluesky
 
-RE.md['proposal'] = '305275' #'commissioning' #'bdt' #'commissioning'
-RE.md['group'] = 'Schmitt' # 'SIX'
+RE.md['proposal'] = '305676' #'commissioning' #'bdt' #'commissioning'
+RE.md['group'] = 'Dean' # 'SIX'
 RE.md['project'] = 'Ni'#'' #'commissioning'
 RE.md['orientation'] = ''
-RE.md['SAF'] = '304972'
-RE.md['sample'] = 'rno'
+RE.md['SAF'] = '305476'
+RE.md['sample'] = 'SrNiO2'
 #RE.md.pop('SAF')
 RE.md.pop('orientation')
 RE.md.pop('project')
@@ -62,7 +62,7 @@ def rixs_one_energy_1(split_time, total_exp,cycles,energy, ext_vg,reason='', dis
             try:
                 print('Starting cycle {} of {}' .format((i+1),cycles))
                 yield from count(dets, num=pts, md = {'reason':'Length = '+str(np.int(pts*split_time))+' s -'+reason} ) 
-                #yield from mvr(cryo.y,0.002) # if you do not want to move comment out this line
+                yield from mvr(cryo.y,-0.002) # if you do not want to move comment out this line
                 #yield from sleep(3)
                 #yield from mvr(cryo.x,-0.0012) # if you do not want to move comment out this line
                 #yield from mvr(cryo.z,0.0026) # if you do not want to move comment out this line
