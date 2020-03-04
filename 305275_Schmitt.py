@@ -226,6 +226,18 @@ def Mar4UDpi0_15deg_35K():
     sec_x_pt = 5
     yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'UD pi0 15deg LV 35K')
 
+def Mar4OPpi0_94deg_35K():
+
+    yield from pol_V(-4.5)
+    #yield from pol_H(-5.5)
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 6
+    en = 931.8
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OP pi0 94deg LV 35K')
+
 def Mar3OPpi0_40deg_35K():
     
     ext_vg = 15
