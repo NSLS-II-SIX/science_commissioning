@@ -226,7 +226,55 @@ def Mar4UDpi0_15deg_35K():
     sec_x_pt = 5
     yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'UD pi0 15deg LV 35K')
 
-def Mar4OPpi0_94deg_35K():
+def Mar5UDpi0_94deg_35K():
+    
+    yield from pol_V(-4.5)
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 6
+    en = 931.58
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'UD pi0 94deg LV 35K')
+
+def Mar4ODpi0_94deg_35K():
+    
+    yield from pol_V(-4.5)
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.8
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OD pi0 94deg LV 35K')
+
+def Mar5OPpipi_95deg_35K():
+
+    #yield from pol_V(-4.5)
+    #yield from pol_H(-5.5)
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.8
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OP pipi 95deg LV 35K')
+
+
+
+def Mar5OPpi0_94deg_80K_LV():
+
+    #yield from pol_V(-4.5)
+    #yield from pol_H(-5.5)
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 18
+    en = 931.55
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OP pi0 94deg LV 80K')
+
+def Mar5ODpi0_94deg_35K_LV():
 
     yield from pol_V(-4.5)
     #yield from pol_H(-5.5)
@@ -234,9 +282,211 @@ def Mar4OPpi0_94deg_35K():
     ext_vg = 11
     total_time = 600
     cyc = 6
+    en = 931.59
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OD pi0 94deg LV 35K more statistics')
+
+def Mar5OPpi0_94deg_35K_LH():
+
+    #yield from pol_V(-4.5)
+    yield from pol_H(-5.5)
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 6
     en = 931.8
     sec_x_pt = 2
-    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OP pi0 94deg LV 35K')
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OP pi0 94deg LH 35K more statistics')
+
+def Mar5ODpi0_94deg_35K_LH():
+
+    #yield from pol_V(-4.5)
+    #yield from pol_H(-5.5)
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 6
+    en = 931.69
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OD pi0 94deg LH 35K')
+
+
+
+def Mar6OPpi0_88deg_80K_LV():
+
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.55
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OP pi0 88deg LV 80K')
+
+def Mar7OPpi0_88deg_100K_LV():
+
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.62
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OP pi0 88deg LV 100K')
+
+def Mar7OPpi0_94deg_150K_LV():
+
+    #yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.7
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OP pi0 94deg LV 150K')
+
+def Mar8OPpi0_88deg_250K_LV():
+
+    #yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.79
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OP pi0 88deg LV 250K')
+
+def Mar7UDpi0_88deg_100K_LV():
+
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.66
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'UD pi0 88deg LV 100K')
+
+def Mar8UDpi0_88deg_250K_LV():
+
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.56
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'UD pi0 88deg LV 250K')
+
+def Mar8UDpi0_94deg_250K_LV():
+
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.57
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'UD pi0 94deg LV 250K')
+
+def Mar8UDpi0_88deg_35K_LV():
+
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 9
+    en = 931.75
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'UD pi0 88deg LV 35K')
+
+def Mar8ODpi0_88deg_35K_LV():
+
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.8
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OD pi0 88deg LV 35K')
+
+def Mar9OPpi0_112deg_35K_LV():
+
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.8
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OD pi0 112deg LV 35K')
+
+def Mar8ODpi0_94deg_250K_LV():
+
+    #yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.7
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OD pi0 94deg LV 250K')
+
+def Mar8ODpi0_88deg_250K_LV():
+
+    #yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.79
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OD pi0 88deg LV 250K')
+
+def Mar7ODpi0_88deg_100K_LV():
+
+    #yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.76
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OD pi0 88deg LV 100K')
+
+def Mar6OPpi0_94deg_100K_LV():
+
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 18
+    en = 931.6
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OP pi0 88deg LV 100K')
+
+def Mar6OPpi0_94deg_100K_LH():
+
+    #yield from pol_V(-4.5)
+    yield from pol_H(-5.5)
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 12
+    en = 931.67
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OP pi0 94deg LH 100K')
+
+def Mar6UDpi0_94deg_100K_LV():
+
+    yield from pol_V(-4.5)
+    #yield from pol_H(-5.5)
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 7
+    en = 931.64
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'UD pi0 94deg LV 100K')
+
+def Mar6ODpi0_94deg_100K_LV():
+
+    yield from pol_V(-4.5)
+    #yield from pol_H(-5.5)
+    yield from sleep(30)
+    ext_vg = 11
+    total_time = 600
+    cyc = 7
+    en = 931.64
+    sec_x_pt = 2
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'OD pi0 94deg LV 100K')
 
 def Mar3OPpi0_40deg_35K():
     
