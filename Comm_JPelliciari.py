@@ -1,8 +1,29 @@
+def test_ccd_noise():
+    
+    yield from mv(rixscam.cam.acquire_time, 1)  
+    yield from count([rixscam],num=600)
+    yield from mv(rixscam.cam.acquire_time, 2)  
+    yield from count([rixscam], num=300)
+    yield from mv(rixscam.cam.acquire_time, 3)  
+    yield from count([rixscam], num = 200)
+    yield from mv(rixscam.cam.acquire_time, 4)  
+    yield from count([rixscam], num = 150)
+    yield from mv(rixscam.cam.acquire_time, 5)  
+    yield from count([rixscam], num = 120)
+    
+    yield from mv(rixscam.cam.acquire_time, 1)  
+    yield from count([rixscam],num= 600)
+    yield from count([rixscam], num= 300)
+    yield from count([rixscam], num = 200)
+    yield from count([rixscam], num = 150)
+    yield from count([rixscam], num = 120)
+ 
+ 
 def test_stability_20200223():
     ext_vg = 11
-    total_time = 90
-    cyc = 1000
-    en = 529
+    total_time = 180
+    cyc = 450
+    en = 707
     sec_x_pt = 3
     yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,en,ext_vg, 'test')
 

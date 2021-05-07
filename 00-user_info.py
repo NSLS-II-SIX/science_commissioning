@@ -1,16 +1,16 @@
 ### For users to run at start of bluesky
+from ophyd import EpicsSignal
 
-RE.md['proposal'] = '305676' #'commissioning' #'bdt' #'commissioning'
-RE.md['group'] = 'Dean' # 'SIX'
-RE.md['project'] = 'Ni'#'' #'commissioning'
+RE.md['proposal'] = 'xxxx' #'commissioning' #'bdt' #'commissioning'
+RE.md['group'] = 'xxxx'
+RE.md['project'] = 'xxxx'#'' #'commissioning'
 RE.md['orientation'] = ''
-RE.md['SAF'] = '305476'
-RE.md['sample'] = 'SrNiO2'
+RE.md['SAF'] = 'xxxx'
+RE.md['sample'] = 'xxxx'
 #RE.md.pop('SAF')
 RE.md.pop('orientation')
 RE.md.pop('project')
 #RE.md.pop('group')
-
 
 ### To change polarization  ###
 # RE(pol_V(0.75))
@@ -34,24 +34,28 @@ def rixs_one_energy_1(split_time, total_exp,cycles,energy, ext_vg,reason='', dis
         sclr_enable()        
         yield from mv(sclr.preset_time,sclr_set_time_n)
           
-        #yield from mv(gvbt1,'close') # close GV before CCD # this magically closes when the scan finishes or is interupted.  Don't understand why.
+        yield from mv(gvbt1,'Close') # close GV before CCD # this magically closes when the scan finishes or is interupted.  Don't understand why.
     
 
     
-    sclr_set_time=sclr.preset_time.value
+    sclr_set_time=sclr.preset_time.get()
     try:
         if disable_sclr_plt == True:
             sclr_disable()   
         else:
 	        sclr_enable()
-        dets=[rixscam, sclr,stemp.temp.B.T]
-        #dets=[rixscam, sclr,stemp.temp.B.T, voltage_dc, current_rbk]
+        
+        dets=[rixscam, sclr] 
+        #dets=[rixscam, sclr,stemp.temp.B.T]
+        #dets=[rixscam, sclr, m1.pit, m3.pit, stemp.temp.B.T]
+        #dets=[rixscam, sclr,stemp.temp.B.T, current_pulse, voltage_pulse_rbk]
         yield from mv(extslt.vg,ext_vg, extslt.hg, 150)
+        #yield from mv(extslt.vg,ext_vg, extslt.hg, 85)
         yield from pzshutter_enable()
         yield from mv(rixscam.cam.acquire_time, split_time)  
         yield from mv(sclr.preset_time, split_time)
         yield from mv(pgm.en,energy)
-        yield from mv(gvbt1,'open')
+        yield from mv(gvbt1,'Open')
         yield from sleep(5)
         pts = int(total_exp/split_time)
 
@@ -62,8 +66,8 @@ def rixs_one_energy_1(split_time, total_exp,cycles,energy, ext_vg,reason='', dis
             try:
                 print('Starting cycle {} of {}' .format((i+1),cycles))
                 yield from count(dets, num=pts, md = {'reason':'Length = '+str(np.int(pts*split_time))+' s -'+reason} ) 
-                yield from mvr(cryo.y,-0.002) # if you do not want to move comment out this line
-                #yield from sleep(3)
+                yield from mvr(cryo.y,0.002) # if you do not want to move comment out this line
+                yield from sleep(2)
                 #yield from mvr(cryo.x,-0.0012) # if you do not want to move comment out this line
                 #yield from mvr(cryo.z,0.0026) # if you do not want to move comment out this line
                 print('Ending cycle {} of {}\n' .format((i+1),cycles))

@@ -1,3 +1,140 @@
+
+def Fe_film_tth150_with_E_field_20200316():
+    ext_vg = 15
+    total_time = 600
+    cyc = 6
+    sec_x_pt = 5
+    #yield from mv(keithley_output,'ON')
+    #yield from mv(voltage_dc,-20.0)
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+
+    yield from mv(extslt.vg, 50)
+    yield from rel_scan([sclr],cryo.x,-0.15,.15,101)
+    yield from sleep(30)
+    yield from rel_scan([sclr],cryo.y,-0.15,.15,101)
+    yield from mv(extslt.vg, 15)
+	
+    #yield from mv(keithley_output,'ON')
+    yield from mv(voltage_dc,0)
+    yield from mv(keithley_output,'OFF')
+    yield from sleep(1800)
+
+    yield from mv(extslt.vg, 50)
+    yield from rel_scan([sclr],cryo.x,-0.15,.15,101)
+    yield from sleep(30)
+    yield from rel_scan([sclr],cryo.y,-0.15,.15,101)
+    yield from mv(extslt.vg, 15)
+
+    cyc = 12
+    sec_x_pt = 5
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+
+    yield from mv(extslt.vg, 50)
+    yield from rel_scan([sclr],cryo.x,-0.15,.15,101)
+    yield from sleep(30)
+    yield from rel_scan([sclr],cryo.y,-0.15,.15,101)
+    yield from mv(extslt.vg, 15)
+
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+
+    yield from mv(extslt.vg, 50)
+    yield from rel_scan([sclr],cryo.x,-0.15,.15,101)
+    yield from sleep(30)
+    yield from rel_scan([sclr],cryo.y,-0.15,.15,101)
+    yield from mv(extslt.vg, 15)
+	 
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+
+    yield from mv(extslt.vg, 50)
+    yield from rel_scan([sclr],cryo.x,-0.15,.15,101)
+    yield from sleep(30)
+    yield from rel_scan([sclr],cryo.y,-0.15,.15,101)
+    yield from mv(extslt.vg, 15)
+	 
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+
+
+def Fe_film_tth150_with_E_field_20200315_v2():
+    ext_vg = 15
+    total_time = 600
+    cyc = 12
+    sec_x_pt = 5
+    #yield from mv(keithley_output,'ON')
+    #yield from mv(voltage_dc,-20.0)
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+
+    yield from mv(extslt.vg, 50)
+    yield from rel_scan([sclr],cryo.x,-0.15,.15,101)
+    yield from sleep(30)
+    yield from rel_scan([sclr],cryo.y,-0.15,.15,101)
+    yield from mv(extslt.vg, 15)
+	
+    cyc = 12
+    sec_x_pt = 5
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+
+    yield from mv(extslt.vg, 50)
+    yield from rel_scan([sclr],cryo.x,-0.15,.15,101)
+    yield from sleep(30)
+    yield from rel_scan([sclr],cryo.y,-0.15,.15,101)
+    yield from mv(extslt.vg, 15)
+
+    cyc = 12 
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+
+    yield from mv(extslt.vg, 50)
+    yield from rel_scan([sclr],cryo.x,-0.15,.15,101)
+    yield from sleep(30)
+    yield from rel_scan([sclr],cryo.y,-0.15,.15,101)
+    yield from mv(extslt.vg, 15)
+	 
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+    yield from mv(voltage_dc,0.0)
+    yield from mv(keithley_output,'OFF')
+
+
+def Fe_film_tth150_with_E_field_20200314_v2():
+    ext_vg = 15
+    total_time = 600
+    cyc = 24
+    sec_x_pt = 5
+    #yield from mv(keithley_output,'ON')
+    #yield from mv(voltage_dc,10.0)
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+    #yield from mv(voltage_dc,0.0)
+    #yield from mv(keithley_output,'OFF')
+
+
+def Fe_film_tth150_with_E_field_20200315():
+    ext_vg = 15
+    total_time = 600
+    cyc = 10
+    sec_x_pt = 5
+    #yield from mv(keithley_output,'ON')
+    #yield from mv(voltage_dc,20.0)
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+
+    yield from mv(extslt.vg, 50)
+    yield from rel_scan([sclr],cryo.x,-0.15,.15,101)
+    yield from sleep(30)
+    yield from rel_scan([sclr],cryo.y,-0.15,.15,101)
+    yield from mv(extslt.vg, 15)
+	
+    cyc = 12 
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+
+    yield from mv(extslt.vg, 50)
+    yield from rel_scan([sclr],cryo.x,-0.15,.15,101)
+    yield from sleep(30)
+    yield from rel_scan([sclr],cryo.y,-0.15,.15,101)
+    yield from mv(extslt.vg, 15)
+	 
+    yield from rixs_one_energy_1(sec_x_pt,total_time,cyc,708,ext_vg, 'Fe film')
+    yield from mv(voltage_dc,0.0)
+    yield from mv(keithley_output,'OFF')
+
+
+
 def Fe3Sn2_th0_highStats():
     ext_vg = 15
     total_time = 600
